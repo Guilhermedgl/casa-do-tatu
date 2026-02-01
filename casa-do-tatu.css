@@ -23,6 +23,10 @@
   --sage-soft: rgba(139, 158, 139, .65);
   --sage-light: #A8B8A8;
 
+  /* Mostarda/ocre */
+  --mustard: #C9A855;
+  --mustard-dark: #B08F3A;
+
   /* Tons claros */
   --cream: #E8DED4;
   --cream-dark: #DDD0C3;
@@ -390,32 +394,6 @@ body.is-nav-open .nav--primary::before {
   color: var(--paper-base);
 }
 
-/* Botão terracota */
-.button--primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px var(--space-lg);
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  font-weight: 600;
-  background: linear-gradient(180deg, rgba(192, 123, 90, .95), rgba(166, 93, 63, .95));
-  color: rgb(255, 251, 245);
-  border: 1px solid rgba(74, 61, 50, .12);
-  box-shadow: var(--shadow-md);
-  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
-}
-
-.button--primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 32px rgba(0, 0, 0, .16);
-  filter: saturate(1.05);
-}
-
-.button--primary:focus-visible {
-  outline: 3px solid rgba(192, 123, 90, .35);
-  outline-offset: 3px;
-}
 
 /* ========== SECTION: CREATOR ========== */
 .section--creator {
@@ -755,4 +733,457 @@ body.is-nav-open .nav--primary::before {
 
   .portfolio__nav--prev { left: -22px; }
   .portfolio__nav--next { right: -22px; }
+}
+
+/* =========================================================
+   SECTION 4 — COMO PODEMOS CELEBRAR JUNTOS (PLANS)
+   ========================================================= */
+
+.section--plans {
+  padding: clamp(64px, 7vw, 110px) 0;
+
+  /* Fundo azul claro com textura suave */
+  background:
+    /* Manchas orgânicas */
+    radial-gradient(
+      ellipse 600px 350px at 10% 20%,
+      rgba(255, 255, 255, .3),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 500px 400px at 90% 80%,
+      rgba(100, 140, 160, .08),
+      transparent 50%
+    ),
+    /* Trama sutil */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(100, 130, 150, .025) 2px,
+      rgba(100, 130, 150, .025) 4px
+    ),
+    /* Base azul claro sólido */
+    #E8F0F5;
+}
+
+/* Header da seção */
+.section--plans .section__header {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .section--plans .section__header {
+    text-align: left;
+  }
+}
+
+.section--plans .section__title {
+  margin: 0 0 var(--space-sm);
+  color: var(--brown);
+}
+
+.section--plans .section__subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--brown-soft);
+}
+
+.section--plans .creator__eyebrow {
+  color: var(--brown-muted);
+}
+
+/* Grid dos planos */
+.plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 900px) {
+  .plans {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+  }
+}
+
+/* Card base */
+.plan {
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse 200px 150px at 90% 10%,
+      rgba(255, 255, 255, .5),
+      transparent 60%
+    ),
+    var(--paper-base);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem 1.75rem;
+  box-shadow:
+    0 2px 8px rgba(74, 61, 50, .06),
+    0 12px 32px rgba(74, 61, 50, .1);
+  border: 1px solid rgba(74, 61, 50, .06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.plan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+}
+
+/* Cores por plano - Paleta Festa com Afeto */
+.plan--basic::before {
+  background: #E5A996;
+}
+
+.plan--modern::before {
+  background: #6B9E94;
+}
+
+.plan--stylish::before {
+  background: #C497A5;
+}
+
+/* Destaque Moderninha */
+.plan--modern {
+  border: 2px solid rgba(107, 158, 148, .4);
+  background:
+    radial-gradient(
+      ellipse 300px 200px at 50% 0%,
+      rgba(107, 158, 148, .1),
+      transparent 70%
+    ),
+    var(--paper-base);
+}
+
+@media (min-width: 900px) {
+  .plan:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .plan--modern {
+    transform: translateY(-8px);
+  }
+
+  .plan--modern:hover {
+    transform: translateY(-12px);
+  }
+}
+
+/* Badge "mais pedida" */
+.plan__badge {
+  position: absolute;
+  top: -12px;
+  right: 1rem;
+  background: #5A8A80;
+  color: var(--paper-base);
+  font-family: var(--font-display);
+  font-size: .75rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Cabeçalho do card */
+.plan__header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(74, 61, 50, .08);
+}
+
+.plan__title {
+  font-family: var(--font-display);
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--brown);
+}
+
+.plan__price {
+  margin: 0;
+}
+
+.plan__price-note {
+  display: block;
+  font-size: .85rem;
+  color: var(--brown-muted);
+}
+
+/* Corpo (lista) */
+.plan__body {
+  flex: 1;
+}
+
+.plan__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--brown-soft);
+}
+
+.plan__list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.plan--basic .plan__list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 1.4rem;
+  color: var(--sage);
+}
+
+.plan--basic .plan__list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 1.4rem;
+  color: #E5A996;
+}
+
+.plan--modern .plan__list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 1.4rem;
+  color: #6B9E94;
+}
+
+.plan--stylish .plan__list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 1.4rem;
+  color: #C497A5;
+}
+
+/* Destaques */
+.plan__highlight {
+  font-weight: 600;
+  color: var(--brown);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(74, 61, 50, .12);
+}
+
+/* Rodapé (CTA por plano) - só mobile */
+.plan__footer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+}
+
+.plan__cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Mobile: mostrar CTA individual */
+/* Desktop: esconder CTA individual */
+@media (min-width: 900px) {
+  .plan__footer {
+    display: none;
+  }
+}
+
+/* CTA geral da seção */
+.plans__cta {
+  margin-top: 2.5rem;
+  text-align: center;
+  display: none;
+}
+
+.plans__cta-text {
+  font-family: var(--font-display);
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--brown);
+}
+
+@media (min-width: 900px) {
+  .plans__cta {
+    display: block;
+  }
+}
+
+/* Botão CTA "Quer ajuda pra escolher?" - Terracota quente */
+.plans__cta .button--primary {
+  background: #D4897A;
+}
+
+.plans__cta .button--primary:hover,
+.plans__cta .button--primary:focus {
+  background: #C07567;
+  box-shadow: 0 8px 24px rgba(212, 137, 122, .4);
+}
+
+/* Add-ons - Card translúcido */
+.addons {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, .3);
+  box-shadow:
+    0 4px 24px rgba(74, 61, 50, .06),
+    inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+
+.addons__title {
+  font-family: var(--font-display);
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--brown);
+}
+
+.addons__subtitle {
+  margin: 0 0 1.25rem;
+  font-size: .9rem;
+  color: var(--brown-muted);
+}
+
+.addons__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  font-size: .85rem;
+  line-height: 1.5;
+  color: var(--brown-soft);
+}
+
+@media (min-width: 600px) {
+  .addons__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .addons__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.addons__list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.addons__list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: #C497A5;
+  font-weight: 600;
+}
+
+.addons__note {
+  margin-top: 1.25rem;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--brown-muted);
+}
+
+/* Botão base reforçado */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+/* Botão secundário (outline) para cards */
+.button--outline {
+  background: transparent;
+  border: 1.5px solid #E5A996;
+  color: var(--brown);
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+/* Hover por plano - Basiquinha (pêssego) */
+.plan--basic .button--outline:hover {
+  background: #E5A996;
+  border-color: #E5A996;
+  color: var(--paper-base);
+}
+
+/* Hover por plano - Estilosa (rosa antigo) */
+.plan--stylish .button--outline {
+  border-color: #C497A5;
+}
+
+.plan--stylish .button--outline:hover {
+  background: #C497A5;
+  border-color: #C497A5;
+  color: var(--paper-base);
+}
+
+/* Botão primário (CTA geral - usa pêssego coral) */
+.button--primary {
+  background-color: #D4897A;
+  color: var(--paper-base);
+  border: none;
+  transition: all .2s ease;
+}
+
+.button--primary:hover,
+.button--primary:focus {
+  background-color: #C07567;
+  box-shadow: 0 8px 24px rgba(192, 117, 103, .45);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.button--primary:active {
+  background-color: #A86355;
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 8px rgba(192, 117, 103, .3);
+}
+
+/* Moderninha - botão verde-água */
+.plan--modern .button--primary {
+  background: #6B9E94;
+}
+
+.plan--modern .button--primary:hover,
+.plan--modern .button--primary:focus {
+  background: #5A8A80;
+  box-shadow: 0 6px 20px rgba(90, 138, 128, .45);
+  transform: translateY(-3px);
 }
