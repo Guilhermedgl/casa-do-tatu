@@ -320,7 +320,13 @@ body.is-nav-open .nav--primary::before {
 }
 
 .hero__content {
-  padding-top: 15%;
+  padding-top: clamp(25%, 30vw, 15%);
+}
+
+@media (max-width: 900px) {
+  .hero__content {
+    padding-top: 35%;
+  }
 }
 
 .hero__title {
