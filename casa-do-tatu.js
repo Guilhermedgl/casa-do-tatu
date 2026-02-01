@@ -64,3 +64,28 @@
     viewport.scrollBy({ left: scrollAmount(), behavior: "smooth" });
   });
 })();
+
+// Step cards - toggle no mobile
+(() => {
+  const cards = document.querySelectorAll(".step-card");
+
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // Remove active de todos os outros
+      cards.forEach((c) => {
+        if (c !== card) c.classList.remove("is-active");
+      });
+      // Toggle no card clicado
+      card.classList.toggle("is-active");
+    });
+  });
+
+  // Fecha ao clicar fora
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".step-card")) {
+      cards.forEach((c) => c.classList.remove("is-active"));
+    }
+  });
+})();
