@@ -46,3 +46,21 @@
 
   close();
 })();
+
+(() => {
+  const viewport = document.querySelector("[data-portfolio-viewport]");
+  const prev = document.querySelector("[data-portfolio-prev]");
+  const next = document.querySelector("[data-portfolio-next]");
+
+  if (!viewport || !prev || !next) return;
+
+  const scrollAmount = () => viewport.clientWidth * 0.9;
+
+  prev.addEventListener("click", () => {
+    viewport.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+  });
+
+  next.addEventListener("click", () => {
+    viewport.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+  });
+})();
