@@ -4,34 +4,37 @@
 
 /* ========== VARIÁVEIS CSS ========== */
 :root {
-  /* Cores principais */
-  --paper-base: #F5F1EB;
+  /* ===== PALETA PRINCIPAL ===== */
+  --color-cream: #F6F2EB;
+  --color-sand: #E9E0D4;
+  --color-sage: #AAB9AA;
+  --color-blue-pastel: #D4E3E7;
+  --color-rose: #D2AAA0;
+  --color-coral: #DE9678;
+  --color-terracotta: #BF7B5D;
+  --color-burnt-orange: #AA5C3C;
+
+  /* Aliases para compatibilidade */
+  --paper-base: var(--color-cream);
+  --cream: var(--color-sand);
+  --cream-dark: var(--color-sand);
+  --sage: var(--color-sage);
+  --sage-light: var(--color-sage);
+  --terracotta: var(--color-terracotta);
+  --terracotta-dark: var(--color-burnt-orange);
+
+  /* Cores de texto (neutros - mantidos) */
   --ink: #3D3028;
   --ink-soft: rgba(61, 48, 40, .65);
   --ink-medium: rgba(61, 48, 40, .82);
   --ink-light: rgba(61, 48, 40, .5);
-
-  /* Tons terrosos */
-  --terracotta: #C07B5A;
-  --terracotta-dark: #A65D3F;
   --brown: #4A3D32;
   --brown-soft: rgba(74, 61, 50, .78);
   --brown-muted: rgba(74, 61, 50, .65);
 
-  /* Cor secundária */
-  --sage: #8B9E8B;
-  --sage-soft: rgba(139, 158, 139, .65);
-  --sage-light: #A8B8A8;
-
-  /* Mostarda/ocre */
-  --mustard: #C9A855;
-  --mustard-dark: #B08F3A;
-
-  /* Tons claros */
-  --cream: #E8DED4;
-  --cream-dark: #DDD0C3;
-  --glass: rgba(245, 241, 235, .72);
-  --glass-strong: rgba(245, 241, 235, .82);
+  /* Vidro/transparência */
+  --glass: rgba(246, 242, 235, .72);
+  --glass-strong: rgba(246, 242, 235, .82);
 
   /* Sombras */
   --shadow-sm: 0 10px 20px rgba(0, 0, 0, .10);
@@ -477,7 +480,13 @@ body.is-nav-open .nav--primary::before {
 
 .creator__content {
   max-width: 60ch;
-  padding-left: 10%;
+  padding-left: 0;
+}
+
+@media (min-width: 900px) {
+  .creator__content {
+    padding-left: 10%;
+  }
 }
 
 .creator__eyebrow {
@@ -663,6 +672,14 @@ body.is-nav-open .nav--primary::before {
   position: relative;
 }
 
+/* Mobile: carrossel full-width (sangra para fora do container) */
+@media (max-width: 899px) {
+  .portfolio {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+}
+
 .portfolio__viewport {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -678,6 +695,14 @@ body.is-nav-open .nav--primary::before {
   display: flex;
   gap: 1.25rem;
   padding-bottom: 0.5rem;
+}
+
+/* Mobile: padding lateral para primeira e última imagem */
+@media (max-width: 899px) {
+  .portfolio__track {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 .portfolio__item {
@@ -763,8 +788,8 @@ body.is-nav-open .nav--primary::before {
       rgba(100, 130, 150, .025) 2px,
       rgba(100, 130, 150, .025) 4px
     ),
-    /* Base azul claro sólido */
-    #E8F0F5;
+    /* Base azul pastel sólido */
+    var(--color-blue-pastel);
 }
 
 /* Header da seção */
@@ -844,26 +869,26 @@ body.is-nav-open .nav--primary::before {
   border-radius: 0 0 3px 3px;
 }
 
-/* Cores por plano - Paleta Festa com Afeto */
+/* Cores por plano - Nova Paleta */
 .plan--basic::before {
-  background: #E5A996;
+  background: var(--color-coral);
 }
 
 .plan--modern::before {
-  background: #6B9E94;
+  background: var(--color-sage);
 }
 
 .plan--stylish::before {
-  background: #C497A5;
+  background: var(--color-rose);
 }
 
 /* Destaque Moderninha */
 .plan--modern {
-  border: 2px solid rgba(107, 158, 148, .4);
+  border: 2px solid rgba(170, 185, 170, .5);
   background:
     radial-gradient(
       ellipse 300px 200px at 50% 0%,
-      rgba(107, 158, 148, .1),
+      rgba(170, 185, 170, .15),
       transparent 70%
     ),
     var(--paper-base);
@@ -889,7 +914,7 @@ body.is-nav-open .nav--primary::before {
   position: absolute;
   top: -12px;
   right: 1rem;
-  background: #5A8A80;
+  background: var(--color-sage);
   color: var(--paper-base);
   font-family: var(--font-display);
   font-size: .75rem;
@@ -961,7 +986,7 @@ body.is-nav-open .nav--primary::before {
   left: 0;
   top: -2px;
   font-size: 1.4rem;
-  color: #E5A996;
+  color: var(--color-coral);
 }
 
 .plan--modern .plan__list li::before {
@@ -970,7 +995,7 @@ body.is-nav-open .nav--primary::before {
   left: 0;
   top: -2px;
   font-size: 1.4rem;
-  color: #6B9E94;
+  color: var(--color-sage);
 }
 
 .plan--stylish .plan__list li::before {
@@ -979,7 +1004,7 @@ body.is-nav-open .nav--primary::before {
   left: 0;
   top: -2px;
   font-size: 1.4rem;
-  color: #C497A5;
+  color: var(--color-rose);
 }
 
 /* Destaques */
@@ -1031,15 +1056,15 @@ body.is-nav-open .nav--primary::before {
   }
 }
 
-/* Botão CTA "Quer ajuda pra escolher?" - Terracota quente */
+/* Botão CTA "Quer ajuda pra escolher?" */
 .plans__cta .button--primary {
-  background: #D4897A;
+  background: var(--color-coral);
 }
 
 .plans__cta .button--primary:hover,
 .plans__cta .button--primary:focus {
-  background: #C07567;
-  box-shadow: 0 8px 24px rgba(212, 137, 122, .4);
+  background: var(--color-terracotta);
+  box-shadow: 0 8px 24px rgba(222, 150, 120, .4);
 }
 
 /* Add-ons - Card translúcido */
@@ -1102,7 +1127,7 @@ body.is-nav-open .nav--primary::before {
   content: "+";
   position: absolute;
   left: 0;
-  color: #C497A5;
+  color: var(--color-rose);
   font-weight: 600;
 }
 
@@ -1132,32 +1157,32 @@ body.is-nav-open .nav--primary::before {
 /* Botão secundário (outline) para cards */
 .button--outline {
   background: transparent;
-  border: 1.5px solid #E5A996;
+  border: 1.5px solid var(--color-coral);
   color: var(--brown);
   transition: background .15s ease, border-color .15s ease, color .15s ease;
 }
 
-/* Hover por plano - Basiquinha (pêssego) */
+/* Hover por plano - Basiquinha (coral) */
 .plan--basic .button--outline:hover {
-  background: #E5A996;
-  border-color: #E5A996;
+  background: var(--color-coral);
+  border-color: var(--color-coral);
   color: var(--paper-base);
 }
 
-/* Hover por plano - Estilosa (rosa antigo) */
+/* Hover por plano - Estilosa (rose) */
 .plan--stylish .button--outline {
-  border-color: #C497A5;
+  border-color: var(--color-rose);
 }
 
 .plan--stylish .button--outline:hover {
-  background: #C497A5;
-  border-color: #C497A5;
+  background: var(--color-rose);
+  border-color: var(--color-rose);
   color: var(--paper-base);
 }
 
-/* Botão primário (CTA geral - usa pêssego coral) */
+/* Botão primário (CTA geral) */
 .button--primary {
-  background-color: #D4897A;
+  background-color: var(--color-coral);
   color: var(--paper-base);
   border: none;
   transition: all .2s ease;
@@ -1165,25 +1190,253 @@ body.is-nav-open .nav--primary::before {
 
 .button--primary:hover,
 .button--primary:focus {
-  background-color: #C07567;
-  box-shadow: 0 8px 24px rgba(192, 117, 103, .45);
+  background-color: var(--color-terracotta);
+  box-shadow: 0 8px 24px rgba(191, 123, 93, .45);
   transform: translateY(-4px) scale(1.02);
 }
 
 .button--primary:active {
-  background-color: #A86355;
+  background-color: var(--color-burnt-orange);
   transform: translateY(0) scale(1);
-  box-shadow: 0 2px 8px rgba(192, 117, 103, .3);
+  box-shadow: 0 2px 8px rgba(170, 92, 60, .3);
 }
 
-/* Moderninha - botão verde-água */
+/* Moderninha - botão sage */
 .plan--modern .button--primary {
-  background: #6B9E94;
+  background: var(--color-sage);
 }
 
 .plan--modern .button--primary:hover,
 .plan--modern .button--primary:focus {
-  background: #5A8A80;
-  box-shadow: 0 6px 20px rgba(90, 138, 128, .45);
+  background: #8FA68F;
+  box-shadow: 0 6px 20px rgba(170, 185, 170, .45);
   transform: translateY(-3px);
+}
+
+/* =========================================================
+   SECTION 5 — COMO FUNCIONA (PROCESS)
+   ========================================================= */
+
+.section--process {
+  padding: clamp(64px, 7vw, 110px) 0;
+
+  /* Fundo rose suave com textura */
+  background:
+    /* Manchas orgânicas */
+    radial-gradient(
+      ellipse 500px 300px at 15% 25%,
+      rgba(255, 255, 255, .35),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 400px 350px at 85% 75%,
+      rgba(210, 170, 160, .12),
+      transparent 50%
+    ),
+    /* Trama sutil */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(180, 140, 130, .02) 2px,
+      rgba(180, 140, 130, .02) 4px
+    ),
+    /* Base rose clarinho */
+    #F5EBE8;
+}
+
+/* Header da seção */
+.section--process .section__header {
+  max-width: 42rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.section--process .section__eyebrow {
+  margin: 0 0 var(--space-sm);
+  font-size: .95rem;
+  letter-spacing: .02em;
+  color: var(--color-terracotta);
+}
+
+.section--process .section__title {
+  font-family: var(--font-display);
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--brown);
+}
+
+.section--process .section__subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--brown-soft);
+}
+
+/* Grid dos passos */
+.process {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 600px) {
+  .process {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .process {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Card de cada passo */
+.step-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.step-card:hover,
+.step-card:focus {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  outline: none;
+}
+
+.step-card:focus-visible {
+  outline: 3px solid var(--color-coral);
+  outline-offset: 3px;
+}
+
+/* Imagem do card */
+.step-card__media {
+  margin: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.step-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(0.7px) brightness(.80);
+  transition: filter .4s ease, transform .4s ease;
+}
+
+/* Overlay escuro sutil */
+.step-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(74, 61, 50, .8) 0%,
+    rgba(74, 61, 50, .35) 50%,
+    rgba(74, 61, 50, .1) 100%
+  );
+  transition: background .4s ease;
+}
+
+/* Conteúdo do card (texto) */
+.step-card__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 4rem;
+  color: var(--paper-base);
+  text-align: left;
+  z-index: 1;
+}
+
+.step-card__number {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1;
+  opacity: .5;
+  transition: opacity .4s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+}
+
+.step-card__title {
+  margin: auto 0 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: transform .4s ease;
+}
+
+.step-card__text {
+  font-size: .9rem;
+  line-height: 1.5;
+  margin: 0;
+  margin-top: .5rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .4s ease, max-height .4s ease;
+}
+
+/* Estado ativo (hover/focus/touch) */
+.step-card:hover .step-card__media img,
+.step-card:focus .step-card__media img,
+.step-card.is-active .step-card__media img {
+  filter: blur(3px) brightness(.85);
+  transform: scale(1.05);
+}
+
+.step-card:hover .step-card__overlay,
+.step-card:focus .step-card__overlay,
+.step-card.is-active .step-card__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(74, 61, 50, .85) 0%,
+    rgba(74, 61, 50, .6) 60%,
+    rgba(74, 61, 50, .3) 100%
+  );
+}
+
+.step-card:hover .step-card__number,
+.step-card:focus .step-card__number,
+.step-card.is-active .step-card__number {
+  opacity: .15;
+}
+
+.step-card:hover .step-card__text,
+.step-card:focus .step-card__text,
+.step-card.is-active .step-card__text {
+  opacity: 1;
+  max-height: 10rem;
+}
+
+/* Nota auxiliar */
+.process__note {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: .85rem;
+  color: var(--brown-muted);
+}
+
+/* Mobile: aspect ratio mais largo para melhor visualização */
+@media (max-width: 599px) {
+  .step-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .process__note {
+    display: none;
+  }
 }
