@@ -21,6 +21,7 @@
   /* Cor secundária */
   --sage: #8B9E8B;
   --sage-soft: rgba(139, 158, 139, .65);
+  --sage-light: #A8B8A8;
 
   /* Tons claros */
   --cream: #E8DED4;
@@ -53,6 +54,10 @@
   /* Transições */
   --transition-fast: .12s ease;
   --transition-medium: .18s ease;
+
+  /* Tipografia */
+  --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
 }
 
 /* ========== RESET / BASE ========== */
@@ -76,7 +81,7 @@ body {
   overflow-x: hidden;
   color: var(--ink);
   background: var(--paper-base);
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-body);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -144,12 +149,14 @@ body::before {
 
 /* ========== HEADER ========== */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 2001;
   height: var(--header-h);
-  background: linear-gradient(to bottom, rgba(245, 241, 235, .78), rgba(245, 241, 235, 0));
-  backdrop-filter: blur(6px);
+  background: linear-gradient(to bottom, rgba(245, 241, 235, .6), rgba(245, 241, 235, .4));
+  backdrop-filter: blur(2px);
 }
 
 .header__inner {
@@ -302,7 +309,8 @@ body.is-nav-open .nav--primary::before {
 
 /* ========== HERO ========== */
 .top {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: var(--header-h);
   background:
     radial-gradient(900px 520px at 22% 22%, rgba(245, 241, 235, .88), rgba(245, 241, 235, .30) 60%, rgba(245, 241, 235, .12) 100%),
     linear-gradient(to bottom, rgba(245, 241, 235, .62), rgba(245, 241, 235, .08)),
@@ -316,13 +324,17 @@ body.is-nav-open .nav--primary::before {
 }
 
 .hero__title {
-  color: var(--ink-medium);
+  font-family: var(--font-display);
+  color: var(--brown);
   margin: 0 0 var(--space-sm);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   font-size: clamp(2.35rem, 5vw, 3.7rem);
-  line-height: 1.05;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .55);
+  line-height: 1.1;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, .8),
+    0 2px 4px rgba(255, 255, 255, .5),
+    0 0 20px rgba(245, 241, 235, .6);
 }
 
 .hero__subtitle {
@@ -357,14 +369,19 @@ body.is-nav-open .nav--primary::before {
 }
 
 .btn--primary {
-  background: rgba(245, 241, 235, .78);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, .14);
-  color: rgba(61, 48, 40, .86);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  padding: 12px 22px;
+  background: var(--sage-light);
+  box-shadow: 0 8px 24px rgba(61, 48, 40, .15);
+  color: var(--paper-base);
+  font-weight: 500;
+  border: none;
 }
 
 .btn--primary:hover {
-  transform: translateY(-1px);
-  background: rgba(245, 241, 235, .90);
+  background: var(--sage);
+  color: var(--paper-base);
 }
 
 /* Botão terracota */
@@ -487,9 +504,11 @@ body.is-nav-open .nav--primary::before {
 }
 
 .creator__title {
+  font-family: var(--font-display);
   margin: 0 0 var(--space-md);
   font-size: clamp(1.7rem, 3.2vw, 2.35rem);
-  line-height: 1.12;
+  line-height: 1.15;
+  font-weight: 500;
   color: var(--brown);
 }
 
@@ -595,7 +614,7 @@ body.is-nav-open .nav--primary::before {
 }
 
 .section--portfolio {
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(64px, 7vw, 110px) 0;
 
   /* Textura de linho com sage */
   background:
@@ -645,7 +664,9 @@ body.is-nav-open .nav--primary::before {
 }
 
 .section__title {
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 500;
 }
 
 .section__subtitle {
