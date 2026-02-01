@@ -641,6 +641,7 @@ body.is-nav-open .nav--primary::before {
 
 .section--portfolio .section__title {
   color: white;
+  margin: 0;
 }
 
 .section__title {
