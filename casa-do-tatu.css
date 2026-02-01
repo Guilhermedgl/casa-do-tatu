@@ -708,13 +708,10 @@ body.is-nav-open .nav--primary::before {
 .portfolio__item {
   flex: 0 0 85%;
   scroll-snap-align: start;
-
-        display: flex
-;
-        flex-direction: column-reverse;
-        /* gap: 20px; */
-        align-items: center;
-        justify-content: space-around;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .portfolio__item img {
@@ -969,15 +966,6 @@ body.is-nav-open .nav--primary::before {
 .plan__list li {
   position: relative;
   padding-left: 1.25rem;
-}
-
-.plan--basic .plan__list li::before {
-  content: "·";
-  position: absolute;
-  left: 0;
-  top: -2px;
-  font-size: 1.4rem;
-  color: var(--sage);
 }
 
 .plan--basic .plan__list li::before {
