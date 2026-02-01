@@ -332,7 +332,7 @@ body.is-nav-open .nav--primary::before {
 
 @media (max-width: 900px) {
   .hero__content {
-    padding-top: 35%;
+    padding-top: 30%;
   }
 }
 
@@ -359,7 +359,7 @@ body.is-nav-open .nav--primary::before {
 
 .hero__subtitle--small {
   width: min(620px, 100%);
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 35px;
   font-size: clamp(0.95rem, 2.0vw, 1.15rem);
   color: var(--ink-medium);
 }
