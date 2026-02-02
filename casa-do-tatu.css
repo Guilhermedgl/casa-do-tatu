@@ -1367,12 +1367,13 @@ body.is-nav-open .nav--primary::before {
 }
 
 .step-card__content::after {
-  content: "Saiba mais +";
+  content: "+";
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  font-size: .75rem;
-  opacity: .7;
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: .8;
   transition: opacity .3s ease;
 }
 
@@ -1446,7 +1447,7 @@ body.is-nav-open .nav--primary::before {
 /* Nota auxiliar */
 .process__note {
   text-align: center;
-  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   font-size: .85rem;
   color: var(--brown-muted);
 }
@@ -1594,10 +1595,6 @@ body.is-nav-open .nav--primary::before {
 @media (max-width: 599px) {
   .step-card {
     aspect-ratio: 4 / 3;
-  }
-
-  .process__note {
-    display: none;
   }
 }
 
