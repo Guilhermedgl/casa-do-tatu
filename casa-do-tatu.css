@@ -1202,14 +1202,18 @@ body.is-nav-open .nav--primary::before {
   box-shadow: 0 2px 8px rgba(170, 92, 60, .3);
 }
 
-/* Moderninha - botão sage */
+/* Moderninha - botão outline sage */
 .plan--modern .button--primary {
-  background: var(--color-sage);
+  background: transparent;
+  border: 1.5px solid var(--color-sage);
+  color: var(--brown);
 }
 
 .plan--modern .button--primary:hover,
 .plan--modern .button--primary:focus {
-  background: #8FA68F;
+  background: var(--color-sage);
+  border-color: var(--color-sage);
+  color: var(--paper-base);
   box-shadow: 0 6px 20px rgba(170, 185, 170, .45);
   transform: translateY(-3px);
 }
@@ -1360,6 +1364,22 @@ body.is-nav-open .nav--primary::before {
   color: var(--paper-base);
   text-align: left;
   z-index: 1;
+}
+
+.step-card__content::after {
+  content: "Saiba mais +";
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: .75rem;
+  opacity: .7;
+  transition: opacity .3s ease;
+}
+
+.step-card:hover .step-card__content::after,
+.step-card:focus .step-card__content::after,
+.step-card.is-active .step-card__content::after {
+  opacity: 0;
 }
 
 .step-card__number {
